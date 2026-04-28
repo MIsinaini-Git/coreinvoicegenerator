@@ -807,13 +807,27 @@ async function downloadPDF(mode = "current"){
     const pageH = 297;
 
     // Fit image into A4 (cover)
-    const imgW = pageW;
-    const imgH = (canvas.height * imgW) / canvas.width;
+    // A4 size
+    const pageW = 210;
+    const pageH = 297;
+    const safeH = pageH - 5; // beri jarak 5mm di bawah agar tidak mentok
+
+    // Calc height based on canvas ratio
+    let imgW = pageW;
+    let imgH = (canvas.height * imgW) / canvas.width;
+
+    // If content is taller than safe area, scale it down
+    let xOffset = 0;
+    if (imgH > safeH) {
+      const ratio = safeH / imgH;
+      imgW = imgW * ratio;
+      imgH = safeH;
+      xOffset = (pageW - imgW) / 2; // center it
+    }
 
     if (i > 0) pdf.addPage();
 
-    // clamp height to avoid extra blank feel
-    pdf.addImage(imgData, "JPEG", 0, 0, imgW, Math.min(imgH, pageH));
+    pdf.addImage(imgData, "JPEG", xOffset, 0, imgW, imgH);
 
     // cleanup
     document.body.removeChild(tempContainer);

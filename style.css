@@ -333,15 +333,17 @@ body{
 /* PAPER (Preview) */
 .paper{
   width: 210mm;
-  height: 297mm;
+  min-height: 297mm;
+  height: auto;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 
   /* BACKGROUND IMAGE */
   background-image: url("IMG_5149.JPG");
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
+  background-attachment: scroll;
 
   color:#000;
   border-radius: 0;
@@ -372,7 +374,7 @@ body{
 
 /* header */
 .p-head{
-  padding: 50mm 14mm 10mm;
+  padding: 42mm 14mm 5mm;
   position:relative;
   border-bottom: none;   /* garis dihapus */
   background-image: var(--doc-header-bg);
@@ -464,13 +466,13 @@ body{
 }
 
 .p-body{
-  padding: 18mm 18mm 10mm;
+  padding: 10mm 18mm 5mm;
   font-size: 12px;
   line-height: 1.55;
 
   flex:1;               /* ini yang dorong footer ke bawah */
 }
-.p-section{ margin-top: 6mm; }
+.p-section{ margin-top: 8mm; }
 .p-h3{
   margin: 0 0 2.5mm;
   font-size:12.5px;
@@ -510,7 +512,7 @@ body{
 .right{ text-align:right; }
 
 .p-foot{
-  padding: 8mm 14mm 10mm;
+  padding: 5mm 14mm 15mm;
   border-top: none;
   margin-top: auto;   /* ⬅️ INI YANG MEMAKSA FOOTER TURUN */
 }
