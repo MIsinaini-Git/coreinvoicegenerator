@@ -803,10 +803,6 @@ async function downloadPDF(mode = "current"){
     const imgData = canvas.toDataURL("image/jpeg", 1.0);
 
     // A4 size
-    const pageW = 210;
-    const pageH = 297;
-
-    // Fit image into A4 (cover)
     // A4 size
     const pageW = 210;
     const pageH = 297;
