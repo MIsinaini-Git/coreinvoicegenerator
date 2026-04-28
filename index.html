@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CORE NATIVES — Tailor-Made Luxury Holiday</title>
+
+  <!-- Luxury Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand__mark">
+  <img src="logo.webp" alt="CORE NATIVES Logo" class="brand__logo" />
+</div>
+        <div class="brand__text">
+          <div class="brand__name">CORE NATIVES</div>
+          <div class="brand__tag">Tailor-Made Luxury Holiday</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav__btn is-active" data-template="reservation">
+          <span class="nav__title">Reservation Form</span>
+          <span class="nav__sub">Form pemesanan</span>
+        </button>
+        <button class="nav__btn" data-template="invoice">
+          <span class="nav__title">Invoice</span>
+          <span class="nav__sub">Tagihan & pembayaran</span>
+        </button>
+        <button class="nav__btn" data-template="confirmation">
+          <span class="nav__title">Confirmation Letter</span>
+          <span class="nav__sub">Surat konfirmasi</span>
+        </button>
+      </nav>
+
+      <div class="sideActions">
+        <button id="btnPrint" class="btn btn--primary">
+          <span class="btn__shine"></span>
+          Download PDF
+        </button>
+        <button id="btnDownloadAll" class="btn btn--ghost" style="font-size: 11px; margin-top: -5px; border-style: dashed;">
+          Download All (3 Pages)
+        </button>
+        <button id="btnReset" class="btn btn--ghost">Reset</button>
+      </div>
+
+      <div class="sideFooter">
+        <div class="badge">Premium • Clean • Elegant</div>
+        <div class="muted">Tip: tombol Download PDF akan membuat 3 halaman otomatis.</div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar__left">
+          <div class="kicker">Luxury UI</div>
+          <h1 class="title">Document Preview</h1>
+        </div>
+
+        <div class="topbar__right">
+          <div class="pill">
+            <span class="pill__dot"></span>
+            Live Preview
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Form Panel -->
+        <section class="panel">
+          <div class="panel__head">
+            <h2 class="panel__title">Isi Data</h2>
+            <p class="panel__desc">Lengkapi field yang kamu butuhkan. Preview akan mengikuti otomatis.</p>
+          </div>
+
+          <div id="formHost" class="form"></div>
+        </section>
+
+        <!-- Preview Panel -->
+        <section class="panel panel--preview">
+          <div class="panel__head">
+            <h2 class="panel__title">Preview (A4)</h2>
+            <p class="panel__desc">Tampilan dibuat elegan untuk dicetak.</p>
+          </div>
+
+          <div class="paperWrap">
+            <article id="paper" class="paper">
+              <!-- filled by JS -->
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Libraries for Auto PDF Download -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <!-- App Script -->
+  <script src="script.js"></script>
+</body>
+</html>
