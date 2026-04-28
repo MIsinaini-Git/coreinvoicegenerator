@@ -37,7 +37,6 @@ body{
     linear-gradient(180deg, #05060a, var(--bg));
   font-family:var(--sans);
   letter-spacing:.2px;
-  overflow-x: hidden; /* Mencegah scroll ke samping */
 }
 
 .app{
@@ -329,8 +328,12 @@ body{
 }
 
 .paperWrap{
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  overflow: hidden; /* Kunci perbaikan: mematikan paksaan lebar layout 210mm */
+  padding: 20px 0;
 }
 
 /* PAPER (Preview) */
@@ -650,34 +653,38 @@ body{
 @media (max-width: 900px){
   .paper{
     transform-origin: top center;
-    transform: scale(0.85);
-    margin-bottom: -100px; /* Kompensasi ruang kosong akibat scale */
+    transform: scale(0.82);
+    margin-bottom: -150px;
+    flex-shrink: 0;
   }
 }
 
-/* HP Standard */
+/* HP Standard (380px - 450px) */
 @media (max-width: 650px){
   .paper{
     transform-origin: top center;
-    transform: scale(0.60);
-    margin-bottom: -250px;
+    transform: scale(0.48);
+    margin-bottom: -450px;
+    flex-shrink: 0;
   }
 }
 
-/* HP Kecil */
-@media (max-width: 450px){
+/* HP Kecil (320px - 375px) */
+@media (max-width: 400px){
   .paper{
     transform-origin: top center;
-    transform: scale(0.42);
-    margin-bottom: -450px;
+    transform: scale(0.40);
+    margin-bottom: -520px;
+    flex-shrink: 0;
   }
 }
 
-/* HP Sangat Kecil */
-@media (max-width: 360px){
+/* HP Sangat Kecil (Layar Jadul) */
+@media (max-width: 340px){
   .paper{
     transform: scale(0.35);
-    margin-bottom: -500px;
+    margin-bottom: -580px;
+    flex-shrink: 0;
   }
 }
 
